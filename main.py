@@ -110,20 +110,6 @@ def main(args):
 
         Z_dim = 28
 
-    elif args.dataset == 'mnist':
-
-        import model_resnet_spec_mnist as model_resnet_spec
-
-        loader = torch.utils.data.DataLoader(
-            datasets.MNIST('../mnist/', train=True, download=True,
-                           transform=transforms.Compose([
-                               transforms.ToTensor(),
-                               transforms.Normalize((0.5,), (0.5,))
-                           ])),
-            batch_size=args.batch_size, shuffle=True, num_workers=1, pin_memory=True)
-
-        Z_dim = 128
-
     else:
         return
 
